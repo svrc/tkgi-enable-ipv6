@@ -27,7 +27,7 @@ bosh upload-release ./dev_releases/tkgi-worker-cloud-properties/tkgi-worker-clou
 ```
 bosh -n update-config --name=tkgi-worker-cloud-properties --type=runtime ./addon.yml
 ```
-5. Update your TKGI clusters via the TKGI CLI and/or Ops Manager "Apply Pending Changes" button with the TKGI upgrade errand enabled.  This addon will automatically be installed on all worker nodes with the default manifest `addon.yml`
-
+5. Update your TKGI API VM via the Ops Manager "Apply Pending Changes" button with only the TKGI tile VM enabled.   You may also optionally enable the TKGI upgrade errand if you want to push the cloud config to all clusters.  
+6. If you wish to do selective application of the new cloud config, use the TKGI CLi `upgrade-cluster` option.  
 
 

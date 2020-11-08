@@ -5,7 +5,10 @@ then
   echo "already updated, skipping"
 else
   echo "adding propreties to disk_enable_uuid named cloud config template"
-  /var/vcap/packages/jq/bin/jq -s '.[0].vm_extensions[0].cloud_properties=(.[0].vm_extensions[0].cloud_properties * .[1])|.[0]' /var/vcap/jobs/bosh-update-config/config/cloud-config.yml /var/vcap/jobs/insert-cloud-props/config/extras.json >  /var/vcap/jobs/bosh-update-config/config/cloud-config.yml 
+  cp  /var/vcap/jobs/bosh-update-config/config/cloud-config.yml  /var/vcap/jobs/bosh-update-config/config/cloud-config.yml.old
+  /var/vcap/packages/jq/bin/jq -s '.[0].vm_extensions[0].cloud_properties=(.[0].vm_extensions[0].cloud_properties * .[1])|.[0]' /var/vcap/jobs/bosh-update-config/config/cloud-config.yml /var/vcap/jobs/insert-cloud-props/config/extras.json > /var/vcap/jobs/bosh-update-config/config/cloud-config.yml.new
+
+  cp  /var/vcap/jobs/bosh-update-config/config/cloud-config.yml.new  /var/vcap/jobs/bosh-update-config/config/cloud-config.yml
 
   touch /var/vcap/jobs/insert-cloud-props/config/INSERTED
 
@@ -13,4 +16,3 @@ else
   /var/vcap/jobs/bosh-update-config/bin/pre-start
 
 fi
-

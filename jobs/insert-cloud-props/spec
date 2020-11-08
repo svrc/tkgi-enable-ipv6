@@ -2,7 +2,8 @@
 name: insert-cloud-props
 
 templates:
-  bin/pre-start.erb: bin/pre-start
+  bin/patch-cloud-props.sh.erb: bin/patch-cloud-props.sh
+  bin/ctl.erb: bin/ctl
   config/extras.json.erb: config/extras.json
 
 packages: []

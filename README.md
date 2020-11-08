@@ -27,7 +27,7 @@ bosh upload-release ./dev_releases/tkgi-worker-cloud-properties/tkgi-worker-clou
 ```
 bosh -n update-config --name=tkgi-worker-cloud-properties --type=runtime ./addon.yml
 ```
-5. Update your TKGI clusters via the TKGI CLI and/or Ops Manager "Apply Pending Changes" button with the TKGI upgrade errand enabled.  This addon will automatically be installed on all worker nodes with the default manifest `pks-dpw-manifest.yml`
+5. Update your TKGI clusters via the TKGI CLI and/or Ops Manager "Apply Pending Changes" button with the TKGI upgrade errand enabled.  This addon will automatically be installed on all worker nodes with the default manifest `addon.yml`
 
 
 

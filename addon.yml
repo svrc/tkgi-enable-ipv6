@@ -10,11 +10,12 @@ addons:
     jobs:
     - name: insert-cloud-props
       release: tkgi-worker-cloud-properties
-      cloud_properties:
-        vmx_options:
-          "cpu.sched.latencySensitivity": "high"
-          "ethernet0.coalescingScheme": "disabled"
-          "spec.cpuAllocation": "FALSE"
+      properties:
+        cloud_properties:
+          vmx_options:
+            "cpu.sched.latencySensitivity": "high"
+            "ethernet0.coalescingScheme": "disabled"
+            "spec.cpuAllocation": "FALSE"
     include: 
       jobs:
       - name: kubelet

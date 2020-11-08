@@ -9,8 +9,5 @@ packages: []
 
 properties:
   cloud_properties:
-    description: cloud properties to be added to worker nodes 
+    description: cloud properties to be added to worker nodes upon recreation or initial creation
 
-consumes:
-- name: kubernetes-workers
-  type: kubernetes-workers

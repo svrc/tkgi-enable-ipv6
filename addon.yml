@@ -18,6 +18,6 @@ addons:
             "spec.cpuAllocation": "FALSE"
     include: 
       jobs:
-      - name: kubelet
-        release: kubo
+      - name: bosh-update-config
+        release: pks-api
 

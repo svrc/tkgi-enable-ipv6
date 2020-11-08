@@ -20,7 +20,7 @@ export BOSH_CLIENT=ops_manager BOSH_CLIENT_SECRET=fakesecret BOSH_CA_CERT=/var/t
 ```
 git clone https://github.com/svrc/tkgi-worker-cloud-properties && cd tkgi-worker-cloud-properties
 bosh create-release --force
-bosh upload-release ./dev_releases/tkgi-worker-cloud-properties/tkgi-worker-cloud-properites-0+dev.1.yml 
+bosh upload-release ./dev_releases/tkgi-worker-cloud-properties/tkgi-worker-cloud-properties-0+dev.1.yml 
 
 ```
 4. Configure the addon from this repo

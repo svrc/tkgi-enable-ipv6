@@ -1,8 +1,1 @@
 
-check process insert-cloud-props
-  with pidfile /var/vcap/sys/run/insert-cloud-props/insert-cloud-props.pid
-  start program "/var/vcap/jobs/insert-cloud-props/bin/ctl start"
-  stop program "/var/vcap/jobs/insert-cloud-props/bin/ctl stop"
-  group vcap
-
-

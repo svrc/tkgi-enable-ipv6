@@ -1,0 +1,16 @@
+---
+name: insert-cloud-props
+
+templates:
+  bin/pre-start.erb: bin/pre-start
+  config/extras.json.erb: config/extras.json
+
+packages: []
+
+properties:
+  cloud_properties:
+    description: cloud properties to be added to worker nodes 
+
+consumes:
+- name: kubernetes-workers
+  type: kubernetes-workers

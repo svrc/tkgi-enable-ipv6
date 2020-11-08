@@ -1,20 +1,18 @@
 ---
-name: pks-cluster-name-override
+name: tkgi-worker-cloud-properties
 
 releases:
-- name: cluster-override
+- name: tkgi-worker-cloud-properties
   version: 0+dev.1
 
 addons:
-  - name: cname-override
+  - name: insert-cloud-props
     jobs:
-    - name: kcm-cname
-      release: cluster-override
+    - name: insert-cloud-props
+      release: tkgi-worker-cloud-properties
 
     include: 
       jobs:
-      - name: kube-controller-manager
+      - name: kubelet
         release: kubo
 
-      stemcell:
-      - os: ubuntu-xenial

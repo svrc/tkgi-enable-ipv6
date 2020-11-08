@@ -1,0 +1,16 @@
+#!/bin/sh
+
+if [ -f /var/vcap/jobs/insert-cloud-props/config/INSERTED ];
+then
+  echo "already updated, skipping"
+else
+  echo "adding propreties to disk_enable_uuid named cloud config template"
+  /var/vcap/packages/jq/bin/jq -s '.[0].vm_extensions[0].cloud_properties=(.[0].vm_extensions[0].cloud_properties * .[1])|.[0]' /var/vcap/jobs/bosh-update-config/config/cloud-config.yml /var/vcap/jobs/insert-cloud-props/config/extras.json >  /var/vcap/jobs/bosh-update-config/config/cloud-config.yml 
+
+  touch /var/vcap/jobs/insert-cloud-props/config/INSERTED
+
+  # run the pre-start in case there was a race condition
+  /var/vcap/jobs/bosh-update-config/bin/pre-start
+
+fi
+

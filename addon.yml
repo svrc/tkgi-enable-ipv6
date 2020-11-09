@@ -3,7 +3,7 @@ name: tkgi-worker-cloud-properties
 
 releases:
 - name: tkgi-worker-cloud-properties
-  version: 0+dev.1
+  version: 0+dev.7
 
 addons:
   - name: insert-cloud-props
@@ -12,6 +12,7 @@ addons:
       release: tkgi-worker-cloud-properties
       properties:
         cloud_properties:
+          memory_reservation_locked_to_max: true
           vmx_options:
             "cpu.sched.latencySensitivity": "high"
             "ethernet0.coalescingScheme": "disabled"

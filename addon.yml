@@ -3,7 +3,7 @@ name: tkgi-worker-cloud-properties
 
 releases:
 - name: tkgi-worker-cloud-properties
-  version: 0+dev.7
+  version: 0+dev.1
 
 addons:
   - name: insert-cloud-props

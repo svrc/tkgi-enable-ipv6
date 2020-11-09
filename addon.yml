@@ -14,9 +14,9 @@ addons:
         cloud_properties:
           memory_reservation_locked_to_max: true
           vmx_options:
-            "cpu.sched.latencySensitivity": "high"
+            "sched.cpu.latencySensitivity": "high"
             "ethernet0.coalescingScheme": "disabled"
-            "spec.cpuAllocation": "FALSE"
+            "sched.cpu.min": "9588"
     include: 
       jobs:
       - name: bosh-update-config

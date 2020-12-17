@@ -1,24 +1,17 @@
 ---
-name: tkgi-worker-cloud-properties
+name:  tkgi-disable-docker-bridge
 
 releases:
-- name: tkgi-worker-cloud-properties
+- name:  tkgi-disable-docker-bridge
   version: 0+dev.1
 
 addons:
-  - name: insert-cloud-props
+  - name:  tkgi-disable-docker-bridge
     jobs:
-    - name: insert-cloud-props
-      release: tkgi-worker-cloud-properties
-      properties:
-        cloud_properties:
-          memory_reservation_locked_to_max: true
-          cpu_reservation_mhz: 9588
-          vmx_options:
-            "sched.cpu.latencySensitivity": "high"
-            "ethernet0.coalescingScheme": "disabled"
+    - name: diable-docker-bridge
+      release:  tkgi-disable-docker-bridge
     include: 
       jobs:
-      - name: bosh-update-config
-        release: pks-api
+      - name: kubelet
+        release: kubo
 

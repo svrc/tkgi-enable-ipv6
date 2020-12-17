@@ -1,0 +1,10 @@
+---
+name: disable-docker-bridge
+
+templates:
+  bin/pre-start.erb: bin/pre-start
+
+packages: []
+
+properties: {}
+

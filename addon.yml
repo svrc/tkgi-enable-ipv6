@@ -8,7 +8,7 @@ releases:
 addons:
   - name:  tkgi-disable-docker-bridge
     jobs:
-    - name: diable-docker-bridge
+    - name: disable-docker-bridge
       release:  tkgi-disable-docker-bridge
     include: 
       jobs:

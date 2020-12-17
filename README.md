@@ -1,10 +1,11 @@
-# Tanzu Kubernetes Grid Integrated (TKGI) / PKS Worker Custom Cloud Properties
+# Tanzu Kubernetes Grid Integrated (TKGI) / PKS Disable Docker Bridge
 
 ## What does this do?
 
-This will insert custom BOSH cloud properties in the worker VMs by adding to an existing VM extension.
+For Flannel-enabled PKS and TKGI clusters, this disables the pre-creation of the cni0 bridge and docker0 bridge.   
 
-This has only been tested on the vSphere CPI.
+This is useful if you churn a lot of Pods, the `cni0` interface MAC addresses will change on every veth creation (pod), which is due to a long standing bug
+where Docker was creating this bridge before the CNI plugin, and thereby defaulting to Linux bridge default behavior of ephemeral MAC addresses.
 
 ## How do I install it?
 
@@ -18,16 +19,13 @@ export BOSH_CLIENT=ops_manager BOSH_CLIENT_SECRET=fakesecret BOSH_CA_CERT=/var/t
 3. Copy or clone this repository onto this BOSH CLI workstation and create+upload the BOSH release to the director
 
 ```
-git clone https://github.com/svrc/tkgi-worker-cloud-properties && cd tkgi-worker-cloud-properties
+git clone https://github.com/svrc/tkgi-disable-docker-bridge && cd tkgi-disable-docker-bridge
 bosh create-release --force
-bosh upload-release ./dev_releases/tkgi-worker-cloud-properties/tkgi-worker-cloud-properties-0+dev.1.yml 
+bosh upload-release ./dev_releases/tkgi-disable-docker-bridge/tkgi-disable-docker-bridge-0+dev.1.yml 
 
 ```
 4. Configure the addon from this repo
 ```
-bosh -n update-config --name=tkgi-worker-cloud-properties --type=runtime ./addon.yml
+bosh -n update-config --name=tkgi-disable-docker-bridge --type=runtime ./addon.yml
 ```
-5. Update your TKGI API VM via the Ops Manager "Apply Pending Changes" button with only the TKGI tile VM enabled.   You may also optionally enable the TKGI upgrade errand if you want to push the cloud config to all clusters.  
-6. If you wish to do selective application of the new cloud config, use the TKGI CLi `upgrade-cluster` option.  
-
-
+5. Update your TKGI clusters via the Ops Manager "Apply Pending Changes" button with the "Upgrade All Clusters" errand.   You may also use the `tkgi upgrade-cluster` command to apply this addon to any individual cluster.

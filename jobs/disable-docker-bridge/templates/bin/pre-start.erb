@@ -1,4 +1,5 @@
 #!/bin/sh
+set +e
 
 sed -i 's/bridge=cni0/bridge=none/' /var/vcap/jobs/docker/bin/job_properties.sh
 sed -i '/flannel/d' /var/vcap/jobs/docker/bin/job_properties.sh

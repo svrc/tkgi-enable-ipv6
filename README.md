@@ -7,7 +7,7 @@ For Flannel-enabled PKS and TKGI clusters, this disables the pre-creation of the
 The docker0 bridge is superfluous and unnecessary, so it's just deleted and not created.
 
 This is useful if you churn a lot of Pods, the `cni0` interface MAC addresses will change on every veth creation (pod), which is due to a long standing bug
-where Docker was creating this bridge before the CNI plugin, and thereby defaulting to Linux bridge default behavior of ephemeral MAC addresses.
+where Docker was creating this bridge before the CNI plugin, and thereby defaulting to Linux bridge default behavior of ephemeral MAC addresses.   This manifests in ARP cache misses in the Pods fairly often, which can slow high throughput workloads.
 
 ## How do I install it?
 

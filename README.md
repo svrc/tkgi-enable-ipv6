@@ -7,7 +7,7 @@ This enables IPv6 on TKGI worker nodes if your workloads require it.
 NOTE: THIS REQUIRES A REBOOT.   IPV6 support on BOSH stemcells are baked into the kernel but disabled
 via GRUB bootloader option, module blacklist, and sysctl disabling.   We re-enable all of those.
 
-Currently we wait for the Kubelet to come up, wait 10 seconds, and reboot.
+Currently we wait for the Kubelet to come up, wait 45 seconds, and reboot.
 YOU WILL LIKELY NEED THE BOSH RESURRECTOR DISASBLED DURING ANY BOSH STEMCELL UPGRADES
 
 ## How do I install it?

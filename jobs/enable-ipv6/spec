@@ -1,0 +1,9 @@
+---
+name: enable-ipv6
+
+templates: 
+  pre-start.erb: bin/pre-start
+
+packages: []
+
+properties: {}

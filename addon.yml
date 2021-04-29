@@ -1,15 +1,15 @@
 ---
-name:  tkgi-disable-docker-bridge
+name:  tkgi-enable-ipv6
 
 releases:
-- name:  tkgi-disable-docker-bridge
+- name:  tkgi-enable-ipv6
   version: 0+dev.1
 
 addons:
-  - name:  tkgi-disable-docker-bridge
+  - name:  tkgi-enable-ipv6
     jobs:
-    - name: disable-docker-bridge
-      release:  tkgi-disable-docker-bridge
+    - name: enable-ipv6
+      release:  tkgi-enable-ipv6
     include: 
       jobs:
       - name: kubelet

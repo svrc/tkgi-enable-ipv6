@@ -1,0 +1,17 @@
+#!/bin/bash -e
+
+if [ -f /var/vcap/data/ipv6_enabled ]; then
+  exit 0
+fi
+
+[ -z "$DEBUG" ] || set -x
+
+kubectl="/var/vcap/packages/kubernetes/bin/kubectl --kubeconfig=/var/vcap/jobs/kubelet/config/kubeconfig"
+
+until ${kubectl} get nodes -o wide -L bosh.id | grep -e ' Ready' | grep "<%= spec.id %>$"; do
+  sleep 2
+done
+
+touch /var/vcap/data/ipv6_enabled
+nohup sleep 10 && reboot & > /dev/null 2>&1
+exit 0

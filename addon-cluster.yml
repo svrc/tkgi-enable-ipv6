@@ -1,0 +1,20 @@
+---
+name:  tkgi-enable-ipv6
+
+releases:
+- name:  tkgi-enable-ipv6
+  version: 0+dev.1
+
+addons:
+  - name:  tkgi-enable-ipv6
+    jobs:
+    - name: enable-ipv6
+      release:  tkgi-enable-ipv6
+    include: 
+      deployments:
+      - service-instance_a437980d-b343-4e3d-9c3f-3a6fcc11b3ad # put your cluster bosh deployment names here
+      - service-instance_31aca076-1882-4bea-bb52-468a6b60f0a6
+      jobs:
+      - name: kubelet
+        release: kubo
+

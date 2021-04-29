@@ -27,8 +27,12 @@ bosh create-release --force
 bosh upload-release ./dev_releases/tkgi-enable-ipv6/tkgi-enable-ipv6-0+dev.1.yml 
 
 ```
-4. Configure the addon from this repo
+4. OPTION A:  Configure the addon from this repo for all clusters
 ```
 bosh -n update-config --name=tkgi-enable-ipv6 --type=runtime ./addon.yml
 ```
-5. Update your TKGI clusters via the Ops Manager "Apply Pending Changes" button with the "Upgrade All Clusters" errand.   You may also use the `tkgi upgrade-cluster` command to apply this addon to any individual cluster.
+5. OPTION B:  Configure the addon from this repo for a specific cluster (see the addon-cluster.yml for details)
+```
+bosh -n update-config --name=tkgi-enable-ipv6 --type=runtime ./addon-cluster.yml
+```
+6. Update your TKGI clusters via the Ops Manager "Apply Pending Changes" button with the "Upgrade All Clusters" errand.   You may also use the `tkgi upgrade-cluster` command to apply this addon to any individual cluster.

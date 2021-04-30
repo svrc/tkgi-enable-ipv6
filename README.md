@@ -8,7 +8,7 @@ NOTE: THIS REQUIRES A REBOOT.   IPV6 support on BOSH stemcells are baked into th
 via GRUB bootloader option, module blacklist, and sysctl disabling.   We re-enable all of those.
 
 Currently we wait for the Kubelet to come up, wait 45 seconds, and reboot.
-YOU WILL LIKELY NEED THE BOSH RESURRECTOR DISASBLED DURING ANY BOSH STEMCELL UPGRADES
+YOU WILL LIKELY NEED THE BOSH RESURRECTOR DISABLED DURING ANY BOSH STEMCELL UPGRADES, though you could also try in "I'm feeling lucky" mode.
 
 ## How do I install it?
 
